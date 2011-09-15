@@ -1,4 +1,4 @@
-=head1 DBIx::Class::Schema::Critic
+=head1 DB Critic
 
 Mark Gardner I<E<lt>L<mjgardner@cpan.org|mailto:mjgardner@cpan.org>E<gt>>
 
@@ -53,12 +53,12 @@ $ sqlite3 sample/demo.db .schema
 CREATE TABLE person (name, title);
 
 =for Bash
-$ dbic_critic --dsn dbi:SQLite:sample/demo.db
+$ dbcritic --dsn dbi:SQLite:sample/demo.db
 
 =head1 Quick Demo Results
 
 =for Bash
-$ dbic_critic --dsn dbi:SQLite:sample/demo.db
+$ dbcritic --dsn dbi:SQLite:sample/demo.db
 
 =for text
 [Table person] No primary key
@@ -116,11 +116,11 @@ Loop over the classes, plugins report violations of a policy
 
 =over
 
-=item C<Critic>
+=item C<DBCritic>
 
-=item C<Critic::Loader>
+=item C<DBCritic::Loader>
 
-=item C<Critic::Violation>
+=item C<DBCritic::Violation>
 
 =back
 
@@ -128,13 +128,13 @@ Loop over the classes, plugins report violations of a policy
 
 =over
 
-=item C<Critic::Policy>
+=item C<DBCritic::Policy>
 
-=item C<Critic::PolicyType>
+=item C<DBCritic::PolicyType>
 
 =back
 
-I<(all under C<DBIx::Class::Schema::>)>
+I<(all under C<App::>)>
 
 =head1 What is a policy?
 
@@ -142,7 +142,7 @@ I<(all under C<DBIx::Class::Schema::>)>
 
 =item concept borrowed from Perl::Critic
 
-=item in C<DBIx::Class::Schema::Critic::Policy::> namespace
+=item in C<App::DBCritic::Policy::> namespace
 
 =item has four methods
 
@@ -173,7 +173,7 @@ returns a Violation object if the policy was violated
 
 =item concept borrowed from Perl::Critic
 
-=item instance of C<DBIx::Class::Schema::Critic::Violation>
+=item instance of C<App::DBCritic::Violation>
 
 =item has C<description>, C<explanation> and C<element> attributes from a violated Policy
 
@@ -198,7 +198,7 @@ sub violates {
     return 'This policy always fails'; # becomes details of the Violation
 }
 # take care of applies_to and returning a Violation object
-with 'DBIx::Class::Schema::Critic::PolicyType::ResultSource';
+with 'App::DBCritic::PolicyType::ResultSource';
 
 =end Perl
 
@@ -228,7 +228,7 @@ Make installable outside of CPAN toolchain for non-Perl programmers.
 
 MOAR POLICIES
 
-(Have ideas? Pls submit on L<GitHub|http://github.com/mjgardner/DBIx-Class-Schema-Critic/issues> KTHX)
+(Have ideas? Pls submit on L<GitHub|http://github.com/mjgardner/dbcritic/issues> KTHX)
 
 =back
 
@@ -241,9 +241,9 @@ MOAR POLICIES
 
 =over
 
-=item CPAN: L<http://search.cpan.org/dist/DBIx-Class-Schema-Critic/>
+=item CPAN: L<http://search.cpan.org/dist/App-DBCritic/>
 
-=item MetaCPAN: L<http://metacpan.org/release/DBIx-Class-Schema-Critic/>
+=item MetaCPAN: L<http://metacpan.org/release/App-DBCritic/>
 
 =back
 
@@ -251,7 +251,7 @@ MOAR POLICIES
 
 =over
 
-=item GitHub: L<http://github.com/mjgardner/DBIx-Class-Schema-Critic>
+=item GitHub: L<http://github.com/mjgardner/dbcritic>
 
 =item I use Dist::Zilla, but the default branch doesn't need it.
 

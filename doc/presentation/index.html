@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-<title>DBIx::Class::Schema::Critic</title>
+<title>DB Critic</title>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
 <meta name="generator" content="pod2s5 0.08" />
 <meta name="generator" content="S5" />
@@ -48,9 +48,9 @@ img#me05 {top: 43px;left: 36px;}
 <div id="header"></div>
 <div id="footer">
 <h1>Philadelphia, PA &#8226; September 12, 2011</h1>
-<h2>DBIx::Class::Schema::Critic</h2></div>
+<h2>DB Critic</h2></div>
 </div><div class="slide">
-<h1>DBIx::Class::Schema::Critic
+<h1>DB Critic
 
 </h1><p>Mark Gardner <i><<a href="mailto:mjgardner@cpan.org">mjgardner@cpan.org</a>></i>
 
@@ -85,13 +85,13 @@ img#me05 {top: 43px;left: 36px;}
 
 </h1>$&nbsp;sqlite3&nbsp;sample/demo.db&nbsp;.schema<BR>
 <BR>
-<pre>CREATE TABLE person (name, title); </pre>$&nbsp;dbic_critic&nbsp;--dsn&nbsp;dbi:SQLite:sample/demo.db<BR>
+<pre>CREATE TABLE person (name, title); </pre>$&nbsp;dbcritic&nbsp;--dsn&nbsp;dbi:SQLite:sample/demo.db<BR>
 <BR>
 </div>
 <div class="slide">
 <h1>Quick Demo Results
 
-</h1>$&nbsp;dbic_critic&nbsp;--dsn&nbsp;dbi:SQLite:sample/demo.db<BR>
+</h1>$&nbsp;dbcritic&nbsp;--dsn&nbsp;dbi:SQLite:sample/demo.db<BR>
 <BR>
 <pre>[Table person] No primary key
 Tables should have one or more columns defined as a primary key.
@@ -131,19 +131,19 @@ person has no primary key </pre><p><img src="Critic-Main-600x314.jpg" />
 
 </h1><h2>Main classes
 
-</h2><ul><li level="1"><code>Critic</code>
+</h2><ul><li level="1"><code>DBCritic</code>
 
-</li><li level="1"><code>Critic::Loader</code>
+</li><li level="1"><code>DBCritic::Loader</code>
 
-</li><li level="1"><code>Critic::Violation</code>
+</li><li level="1"><code>DBCritic::Violation</code>
 
 </li></ul><h2>Roles
 
-</h2><ul><li level="1"><code>Critic::Policy</code>
+</h2><ul><li level="1"><code>DBCritic::Policy</code>
 
-</li><li level="1"><code>Critic::PolicyType</code>
+</li><li level="1"><code>DBCritic::PolicyType</code>
 
-</li></ul><p><i>(all under <code>DBIx::Class::Schema::</code>)</i>
+</li></ul><p><i>(all under <code>App::</code>)</i>
 
 </p></div>
 <div class="slide">
@@ -151,7 +151,7 @@ person has no primary key </pre><p><img src="Critic-Main-600x314.jpg" />
 
 </h1><ul><li level="1">concept borrowed from Perl::Critic
 
-</li><li level="1">in <code>DBIx::Class::Schema::Critic::Policy::</code> namespace
+</li><li level="1">in <code>App::DBCritic::Policy::</code> namespace
 
 </li><li level="1">has four methods
 
@@ -175,7 +175,7 @@ returns a Violation object if the policy was violated
 
 </h1><ul><li level="1">concept borrowed from Perl::Critic
 
-</li><li level="1">instance of <code>DBIx::Class::Schema::Critic::Violation</code>
+</li><li level="1">instance of <code>App::DBCritic::Violation</code>
 
 </li><li level="1">has <code>description</code>, <code>explanation</code> and <code>element</code> attributes from a violated Policy
 
@@ -197,7 +197,7 @@ returns a Violation object if the policy was violated
 &nbsp;&nbsp;&nbsp;&nbsp;<b>return</b>&nbsp;<font color="#ffa500">'</font><font color="#ff0000">This&nbsp;policy&nbsp;always&nbsp;fails</font><font color="#ffa500">'</font>;&nbsp;<font color="#7f7f7f"><i>#&nbsp;becomes&nbsp;details&nbsp;of&nbsp;the&nbsp;Violation</i></font><font color="#7f7f7f"><i><BR>
 </i></font>}<BR>
 <font color="#7f7f7f"><i>#&nbsp;take&nbsp;care&nbsp;of&nbsp;applies_to&nbsp;and&nbsp;returning&nbsp;a&nbsp;Violation&nbsp;object</i></font><font color="#7f7f7f"><i><BR>
-</i></font>with&nbsp;<font color="#ffa500">'</font><font color="#ff0000">DBIx::Class::Schema::Critic::PolicyType::ResultSource</font><font color="#ffa500">'</font>;<BR>
+</i></font>with&nbsp;<font color="#ffa500">'</font><font color="#ff0000">App::DBCritic::PolicyType::ResultSource</font><font color="#ffa500">'</font>;<BR>
 <BR>
 </div>
 <div class="slide">
@@ -215,7 +215,7 @@ returns a Violation object if the policy was violated
 
 </p></li><li level="1"><p>MOAR POLICIES
 
-</p><p>(Have ideas? Pls submit on <a href="http://github.com/mjgardner/DBIx-Class-Schema-Critic/issues">GitHub</a> KTHX)
+</p><p>(Have ideas? Pls submit on <a href="http://github.com/mjgardner/dbcritic/issues">GitHub</a> KTHX)
 
 </p></li></ul class="incremental"></div>
 <div class="slide">
@@ -223,13 +223,13 @@ returns a Violation object if the policy was violated
 
 </h1><ul><li level="1">Download
 
-<ul><li level="1">CPAN: <a href="http://search.cpan.org/dist/DBIx-Class-Schema-Critic/">http://search.cpan.org/dist/DBIx-Class-Schema-Critic/</a>
+<ul><li level="1">CPAN: <a href="http://search.cpan.org/dist/App-DBCritic/">http://search.cpan.org/dist/App-DBCritic/</a>
 
-</li><li level="1">MetaCPAN: <a href="http://metacpan.org/release/DBIx-Class-Schema-Critic/">http://metacpan.org/release/DBIx-Class-Schema-Critic/</a>
+</li><li level="1">MetaCPAN: <a href="http://metacpan.org/release/App-DBCritic/">http://metacpan.org/release/App-DBCritic/</a>
 
 </li></ul></li><li level="1">Contribute ideas, policies and code
 
-<ul><li level="1">GitHub: <a href="http://github.com/mjgardner/DBIx-Class-Schema-Critic">http://github.com/mjgardner/DBIx-Class-Schema-Critic</a>
+<ul><li level="1">GitHub: <a href="http://github.com/mjgardner/dbcritic">http://github.com/mjgardner/dbcritic</a>
 
 </li><li level="1">I use Dist::Zilla, but the default branch doesn't need it.
 
